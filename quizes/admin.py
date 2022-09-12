@@ -6,3 +6,4 @@ from .models import Quiz, Topic
 
 admin.site.register(Quiz)
 admin.site.register(Topic)
+

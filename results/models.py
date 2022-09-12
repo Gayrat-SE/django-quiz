@@ -1,10 +1,10 @@
 from django.db import models
-
+from account.models import Contact
 # Quiz model        
 from quizes.models import Quiz
 
 # User model
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 # Validators
 from validators.validators import PERCENTAGE_VALIDATOR
@@ -28,7 +28,7 @@ class Result(models.Model):
     )
 
     user = models.ForeignKey(
-        User,
+        Contact,
         on_delete=models.CASCADE
     )
 
