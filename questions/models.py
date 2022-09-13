@@ -1,12 +1,13 @@
-from operator import mod
-from pyexpat import model
+
 from django.db import models
 from quizes.models import Quiz
+from ckeditor_uploader.fields import RichTextUploadingField #import this
+
 
 # Create your models here.
 class Question(models.Model):
     
-    text = models.TextField()
+    text = RichTextUploadingField()
     
     quiz = models.ForeignKey(
         Quiz,
@@ -37,7 +38,7 @@ class Answer(models.Model):
     It can be true or false.
     """
   
-    text = models.TextField()
+    text = RichTextUploadingField()
     
     date = models.DateTimeField(
         auto_now_add=True,

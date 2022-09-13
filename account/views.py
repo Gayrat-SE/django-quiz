@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+# from quizes.views import QuizListView
 from .forms import ContactCreateForm
 
 def index(request):
@@ -8,8 +8,9 @@ def index(request):
         form = ContactCreateForm(request.POST)
 
         if form.is_valid():
-            form = form.save()
+            form.save()
+            print(11111111111111)
 
-            return render(request, 'quizes/main.html')
+            return redirect('quiz_list_view')
 
     return render(request, 'index.html')

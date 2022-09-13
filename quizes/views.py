@@ -32,7 +32,7 @@ def save_quiz_view(request, pk):
     if request.accepts("application/json"):
         data = request.POST
         data_ = dict(data.lists())
-        data_.pop('csrfmiddlewaretoken')
+        # data_.pop('csrfmiddlewaretoken')
 
         questions = []
 

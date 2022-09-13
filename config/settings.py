@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,30 +31,23 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-DEFAULT_APPS = [
+
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'account'
-]
-
-THIRD_APPS = [
-    'ckeditor',
-    'ckeditor_uploader',
-]
-
-
-CUSTOM_APPS = [
     'results',
     'quizes',
     'questions',
+    'account',
+    'ckeditor',
+    'ckeditor_uploader',
+
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + THIRD_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,7 +64,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,11 +127,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles/'
+# STATIC_ROOT = BASE_DIR / 'staticfiles/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    BASE_DIR / 'quizes' /  'static'
+    os.path.join(BASE_DIR, 'static')
+    # BASE_DIR / 'static',
+    # BASE_DIR / 'quizes' /  'static'
 ]
 
 

@@ -27,7 +27,7 @@ class Result(models.Model):
         on_delete=models.CASCADE
     )
 
-    user = models.ForeignKey(
+    contact = models.ForeignKey(
         Contact,
         on_delete=models.CASCADE
     )
